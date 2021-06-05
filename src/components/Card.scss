@@ -1,39 +1,58 @@
 .carditem {
    height: 240px;
    width: 240px;
-   border: 1px solid black;
+   // border: 1px solid black;
    border-radius: 8px;
    position: relative;
    box-sizing: border-box;
    padding: 0 20px 24px;
 
-   &-points {
+   &-reward-wrp {
       position: absolute;
       top: 0;
       right: 0;
       height: 32px;
       width: 47px;
-      border: 1px solid black;
+      // border: 1px solid black;
       border-radius: 0 8px;
       text-align: center;
+      background: #64060640;
+   }
+
+   &-reward {
       vertical-align: middle;
+      font-family: Roboto;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 32px;
+      letter-spacing: 0em;
+      color: #fff;
    }
 
    &-text {
-      position: absolute;
-      bottom: 0;
+      display: flex;
+      align-items: flex-end;
+      height: 100%;
+      color: #fff;
+      font-family: Roboto;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 23px;
+      letter-spacing: 0em;
    }
 }
 
-.lowest-points {
+.lowest-reward {
    background-color: #ffb966;
 }
-.low-points {
+.low-reward {
    background-color: #fe8368;
 }
-.high-points {
+.high-reward {
    background-color: #ff5f5f;
 }
-.highest-points {
+.highest-reward {
    background-color: #ff467d;
 }
