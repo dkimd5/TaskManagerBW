@@ -1,0 +1,39 @@
+.carditem {
+   height: 240px;
+   width: 240px;
+   border: 1px solid black;
+   border-radius: 8px;
+   position: relative;
+   box-sizing: border-box;
+   padding: 0 20px 24px;
+
+   &-points {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 32px;
+      width: 47px;
+      border: 1px solid black;
+      border-radius: 0 8px;
+      text-align: center;
+      vertical-align: middle;
+   }
+
+   &-text {
+      position: absolute;
+      bottom: 0;
+   }
+}
+
+.lowest-points {
+   background-color: #ffb966;
+}
+.low-points {
+   background-color: #fe8368;
+}
+.high-points {
+   background-color: #ff5f5f;
+}
+.highest-points {
+   background-color: #ff467d;
+}
