@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card } from "./Card";
 import "./reset.css";
 import "./App.scss";
+
 
 const initialCards = [
    { reward: 125, task: "Find dad's wallet" },
@@ -19,7 +20,11 @@ export const App = () => {
    return (
       <ul className="cardslist">
          { cards.map((card, index) => (
-            <Card key={ index } reward={ card.reward } task={ card.task } />
+            <Card
+               key={ index }
+               reward={ card.reward }
+               task={ card.task }
+            />
          )) }
       </ul>
    );

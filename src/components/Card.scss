@@ -1,11 +1,31 @@
 .carditem {
+   position: relative;
    height: 240px;
    width: 240px;
-   // border: 1px solid black;
    border-radius: 8px;
    position: relative;
    box-sizing: border-box;
-   padding: 0 20px 24px;
+   cursor: pointer;
+   transition: transform 1s;
+   transform-style: preserve-3d;
+
+   &-front,
+   &-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+   }
+
+   &-front {
+      padding: 0 20px 24px;
+      box-sizing: border-box;
+   }
+
+   &-back,
+   &-complite {
+      transform: rotateY(180deg);
+   }
 
    &-reward-wrp {
       position: absolute;
@@ -13,7 +33,6 @@
       right: 0;
       height: 32px;
       width: 47px;
-      // border: 1px solid black;
       border-radius: 0 8px;
       text-align: center;
       background: #64060640;
@@ -42,6 +61,10 @@
       line-height: 23px;
       letter-spacing: 0em;
    }
+}
+
+.is-flipped {
+   transform: rotateY(180deg);
 }
 
 .lowest-reward {
