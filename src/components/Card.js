@@ -64,24 +64,36 @@ export const Card = ({ reward, task }) => {
                <p className="carditem-text">{ task }</p>
             </div>
          }
+
          {
             current.matches("backside") &&
             <div className='carditem-back'>
-               <button
-                  onClick={ () => { send('BACK_TO_TASK'); toggleClassFunc() } }
-               >
-                  Not done
+               <p className='carditem-back-text'>did you { task }?</p>
+
+               <div className='carditem-btn-wrp'>
+                  <button
+                     className='carditem-btn'
+                     onClick={ () => { send('BACK_TO_TASK'); toggleClassFunc() } }
+                  >
+                     <svg className='carditem-btn-svg' width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M37.0834 4.55919L33.4409 0.916687L19 15.3575L4.55919 0.916687L0.916687 4.55919L15.3575 19L0.916687 33.4409L4.55919 37.0834L19 22.6425L33.4409 37.0834L37.0834 33.4409L22.6425 19L37.0834 4.55919Z" />
+                     </svg>
                   </button>
-               <button
-                  onClick={ () => { send('FINISH_TASK') } }
-               >
-                  Done
+                  <button
+                     className='carditem-btn'
+                     onClick={ () => { send('FINISH_TASK') } }
+                  >
+                     <svg className='carditem-btn-svg' width="36" height="27" viewBox="0 0 36 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21.4L3.59999 13L0.799988 15.8L12 27L36 3.00001L33.2 0.200012L12 21.4Z" />
+                     </svg>
                   </button>
+               </div>
             </div>
          }
+
          {current.matches("taskcomplite") &&
             <div className='carditem-complite'>
-               <span>Well Done</span>
+               <p className='carditem-complite-text'>Well done!</p>
             </div>
          }
       </li>

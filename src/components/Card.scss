@@ -4,27 +4,52 @@
    width: 240px;
    border-radius: 8px;
    position: relative;
-   box-sizing: border-box;
-   cursor: pointer;
+   // box-sizing: border-box;
+
    transition: transform 1s;
    transform-style: preserve-3d;
+
+   margin: 20px;
 
    &-front,
    &-back {
       position: absolute;
-      width: 100%;
-      height: 100%;
       backface-visibility: hidden;
    }
 
    &-front {
       padding: 0 20px 24px;
-      box-sizing: border-box;
+      cursor: pointer;
    }
 
    &-back,
    &-complite {
+      background-color: #ffe8db;
       transform: rotateY(180deg);
+   }
+
+   &-back {
+      // padding: 20px 20px 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &-text {
+         margin: 20px 20px 0;
+         text-transform: lowercase;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: normal;
+         font-size: 18px;
+         line-height: 125%;
+         text-align: center;
+         color: #555555;
+      }
+
+      &-text::first-letter {
+         text-transform: uppercase;
+      }
    }
 
    &-reward-wrp {
@@ -60,6 +85,60 @@
       font-weight: 700;
       line-height: 23px;
       letter-spacing: 0em;
+   }
+
+   &-complite {
+      width: 100%;
+      height: 100%;
+      padding: 20px 20px 0;
+      box-sizing: border-box;
+   }
+
+   &-complite-text {
+      text-transform: lowercase;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 125%;
+      text-align: center;
+      color: #555555;
+   }
+
+   &-front,
+   &-back,
+   &-complite {
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+   }
+
+   &-btn-wrp {
+      margin: 0 29px 41px;
+      display: flex;
+      justify-content: space-between;
+   }
+
+   &-btn {
+      width: 64px;
+      height: 64px;
+      border: none;
+      background: none;
+      cursor: pointer;
+
+      &-svg {
+         fill: #555555;
+      }
+   }
+
+   &-btn:hover {
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23FF8933FF' stroke-width='2' stroke-dasharray='5' stroke-dashoffset='45' stroke-linecap='butt'/%3e%3c/svg%3e");
+      border-radius: 100px;
+   }
+
+   &-btn:hover > svg {
+      fill: #ff8933;
    }
 }
 
