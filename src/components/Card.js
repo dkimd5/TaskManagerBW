@@ -72,7 +72,7 @@ export const Card = ({ reward, task }) => {
 
                <div className='carditem-btn-wrp'>
                   <button
-                     className='carditem-btn'
+                     className='carditem-btn carditem-btn-notdone'
                      onClick={ () => { send('BACK_TO_TASK'); toggleClassFunc() } }
                   >
                      <svg className='carditem-btn-svg' width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +80,7 @@ export const Card = ({ reward, task }) => {
                      </svg>
                   </button>
                   <button
-                     className='carditem-btn'
+                     className='carditem-btn carditem-btn-done'
                      onClick={ () => { send('FINISH_TASK') } }
                   >
                      <svg className='carditem-btn-svg' width="36" height="27" viewBox="0 0 36 27" fill="none" xmlns="http://www.w3.org/2000/svg">
