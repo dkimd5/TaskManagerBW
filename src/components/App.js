@@ -27,6 +27,9 @@ export const App = () => {
          </ul>
 
          <Switch>
+            <Route path='/' exact>
+               <CardsList />
+            </Route>
             <Route path='/:id'>
                <CardsList />
             </Route>

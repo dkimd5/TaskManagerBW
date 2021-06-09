@@ -12,13 +12,20 @@ const initialCards = [
    { reward: 50, task: "Water plants" },
 ];
 
+const cardsHistory = [
+   { reward: 125, task: "Find dad's wallet" },
+   { reward: 100, task: "Put away old toys to white boxes on the balkoney" },
+   { reward: 75, task: "Wash the dishes" },
+]
+
 export const CardsList = () => {
    const [cards, setCards] = useState(initialCards);
+   const [history, setHistory] = useState(cardsHistory);
    const { id } = useParams();
 
-   return (
+   const cardsRender = (cardsArray) => (
       <ul className="cardslist">
-         { cards.map((card, index) => (
+         { cardsArray.map((card, index) => (
             <Card
                key={ index }
                reward={ card.reward }
@@ -26,5 +33,11 @@ export const CardsList = () => {
             />
          )) }
       </ul>
+   )
+
+   if (id === 'history') { return cardsRender(history) }
+
+   return (
+      cardsRender(cards)
    )
 }
