@@ -1,31 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { Card } from "./Card";
+import React, { useState } from "react";
 import "./reset.css";
-import "./App.scss";
+import { CardsList } from "./CardsList";
+import {
+   BrowserRouter as Router,
+   Switch,
+   Route,
+   Link
+} from "react-router-dom";
 
 
-const initialCards = [
-   { reward: 125, task: "Find dad's wallet" },
-   { reward: 100, task: "Put away old toys to white boxes on the balkoney" },
-   { reward: 75, task: "Wash the dishes" },
-   { reward: 50, task: "Make your bed in the morning" },
-   { reward: 50, task: "Fix the pillowcase" },
-   { reward: 50, task: "Water plants" },
-];
+
 
 export const App = () => {
 
-   const [cards, setCards] = useState(initialCards);
+
 
    return (
-      <ul className="cardslist">
-         { cards.map((card, index) => (
-            <Card
-               key={ index }
-               reward={ card.reward }
-               task={ card.task }
-            />
-         )) }
-      </ul>
+      <Router>
+         <ul>
+            <li>
+               <Link to='/todayshousework'>Today’s housework</Link>
+            </li>
+            <li>
+               <Link to='/history'>History</Link>
+            </li>
+         </ul>
+
+         <Switch>
+            <Route path='/:id'>
+               <CardsList />
+            </Route>
+         </Switch>
+
+
+      </Router>
    );
 }
