@@ -25,7 +25,7 @@ const cardMachine = createMachine({
 })
 //FSM-------------------------------------------------------------------
 
-export const Card = ({ reward, task }) => {
+export const Card = ({ reward, task, id }) => {
 
    const [current, send] = useMachine(cardMachine);
 
@@ -48,6 +48,21 @@ export const Card = ({ reward, task }) => {
       } else {
          return "";
       }
+   }
+
+   if (id === 'history') {
+      return (
+         <li className={ `carditem ${cardColor()} ${toggleClass.active ? 'is-flipped' : null} ` }>
+            <div
+               className='carditem-front'
+            >
+               <div className="carditem-reward-wrp">
+                  <span className="carditem-reward" >{ reward }</span>
+               </div>
+               <p className="carditem-text">{ task }</p>
+            </div>
+         </li>
+      )
    }
 
    return (
