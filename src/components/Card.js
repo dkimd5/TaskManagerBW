@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./Card.scss"
 import { createMachine } from 'xstate';
 import { useMachine } from '@xstate/react';
@@ -52,16 +52,19 @@ export const Card = ({ reward, task, id, date }) => {
 
    if (id === 'history') {
       return (
-         <li className={ `carditem ${cardColor()}` }>
-            <div
-               className='carditem-front'
-            >
-               <div className="carditem-reward-wrp">
-                  <span className="carditem-reward" >{ reward }</span>
+         <>
+            <div>{ date }</div>
+            <li className={ `carditem ${cardColor()}` }>
+               <div
+                  className='carditem-front'
+               >
+                  <div className="carditem-reward-wrp">
+                     <span className="carditem-reward" >{ reward }</span>
+                  </div>
+                  <p className="carditem-text">{ task }</p>
                </div>
-               <p className="carditem-text">{ task }</p>
-            </div>
-         </li>
+            </li>
+         </>
       )
    }
 

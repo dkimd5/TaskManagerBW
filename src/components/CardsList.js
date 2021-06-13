@@ -42,7 +42,7 @@ export const CardsList = () => {
    const [history, setHistory] = useState(cardsHistory);
    const { id } = useParams();
 
-
+   // const dates = Object.keys(history);
 
    const cardsRender = (cardsArray) => {
       if (cardsArray == cards) {
@@ -59,25 +59,43 @@ export const CardsList = () => {
             </ul>
          )
       } else {
-         return (
-            <ul className="cardslist">
-               {
-                  Object.keys(cardsArray).map(date => (
+         return (Object.keys(cardsArray).map(date => (
+            <div key={ Math.random() }>
+               <h3>{ date }</h3>
+               <ul className="cardslist">
+                  {
                      cardsArray[date].map((card, index) => (
                         <Card
                            key={ index }
                            reward={ card.reward }
                            task={ card.task }
                            id={ id }
-                           date={ date }
                         />
                      ))
-                  ))
-               }
-            </ul>
+                  }
+               </ul>
+            </div>
+         ))
+
          )
       }
    }
+
+   // <ul className="cardslist">
+   //             {
+   //                Object.keys(cardsArray).map(date => (
+   //                   cardsArray[date].map((card, index) => (
+   //                      <Card
+   //                         key={ index }
+   //                         reward={ card.reward }
+   //                         task={ card.task }
+   //                         id={ id }
+   //                         date={ date }
+   //                      />
+   //                   ))
+   //                ))
+   //             }
+   //          </ul>
 
    if (id === 'history') { return cardsRender(history) }
 
