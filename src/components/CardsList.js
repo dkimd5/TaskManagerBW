@@ -22,17 +22,17 @@ const initialCards = [
 
 const cardsHistory = {
    [today]: [
-      { reward: 125, task: "Find dad's wallet" },
-      { reward: 100, task: "Put away old toys to white boxes on the balkoney" },
-      { reward: 75, task: "Wash the dishes" },
+      { reward: 125, task: "Find dad's wallet", date: today },
+      { reward: 100, task: "Put away old toys to white boxes on the balkoney", date: today },
+      { reward: 75, task: "Wash the dishes", date: today },
    ],
    [yesterday]: [
-      { reward: 75, task: "Wash the dishes" },
-      { reward: 50, task: "Water plants on the second floor" },
+      { reward: 75, task: "Wash the dishes", date: yesterday },
+      { reward: 50, task: "Water plants on the second floor", date: yesterday },
    ],
    [beforeYesterday]: [
-      { reward: 100, task: "Help grandma with shopping" },
-      { reward: 50, task: "Water plants" },
+      { reward: 100, task: "Help grandma with shopping", date: beforeYesterday },
+      { reward: 50, task: "Water plants", date: beforeYesterday },
    ]
 }
 
@@ -44,18 +44,40 @@ export const CardsList = () => {
 
 
 
-   const cardsRender = (cardsArray) => (
-      <ul className="cardslist">
-         { cardsArray.map((card, index) => (
-            <Card
-               key={ index }
-               reward={ card.reward }
-               task={ card.task }
-               id={ id }
-            />
-         )) }
-      </ul>
-   )
+   const cardsRender = (cardsArray) => {
+      if (cardsArray == cards) {
+         return (
+            <ul className="cardslist">
+               { cardsArray.map((card, index) => (
+                  <Card
+                     key={ index }
+                     reward={ card.reward }
+                     task={ card.task }
+                     id={ id }
+                  />
+               )) }
+            </ul>
+         )
+      } else {
+         return (
+            <ul className="cardslist">
+               {
+                  Object.keys(cardsArray).map(date => (
+                     cardsArray[date].map((card, index) => (
+                        <Card
+                           key={ index }
+                           reward={ card.reward }
+                           task={ card.task }
+                           id={ id }
+                           date={ date }
+                        />
+                     ))
+                  ))
+               }
+            </ul>
+         )
+      }
+   }
 
    if (id === 'history') { return cardsRender(history) }
 

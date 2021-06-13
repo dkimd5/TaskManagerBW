@@ -25,7 +25,7 @@ const cardMachine = createMachine({
 })
 //FSM-------------------------------------------------------------------
 
-export const Card = ({ reward, task, id }) => {
+export const Card = ({ reward, task, id, date }) => {
 
    const [current, send] = useMachine(cardMachine);
 
@@ -52,7 +52,7 @@ export const Card = ({ reward, task, id }) => {
 
    if (id === 'history') {
       return (
-         <li className={ `carditem ${cardColor()} ${toggleClass.active ? 'is-flipped' : null} ` }>
+         <li className={ `carditem ${cardColor()}` }>
             <div
                className='carditem-front'
             >
@@ -64,6 +64,7 @@ export const Card = ({ reward, task, id }) => {
          </li>
       )
    }
+
 
    return (
       <li className={ `carditem ${cardColor()} ${toggleClass.active ? 'is-flipped' : null} ` }>
@@ -106,7 +107,7 @@ export const Card = ({ reward, task, id }) => {
             </div>
          }
 
-         {current.matches("taskcomplite") &&
+         { current.matches("taskcomplite") &&
             <div className='carditem-complite'>
                <svg className='carditem-circle-img' width="122" height="122" viewBox="0 0 122 122" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="61" cy="61" r="60" stroke="#FF8933" strokeDasharray="5 5" />
