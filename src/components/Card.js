@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./Card.scss"
 import { createMachine } from 'xstate';
 import { useMachine } from '@xstate/react';
@@ -25,7 +25,7 @@ const cardMachine = createMachine({
 })
 //FSM-------------------------------------------------------------------
 
-export const Card = ({ reward, task }) => {
+export const Card = ({ reward, task, id, date }) => {
 
    const [current, send] = useMachine(cardMachine);
 
@@ -49,6 +49,25 @@ export const Card = ({ reward, task }) => {
          return "";
       }
    }
+
+   if (id === 'history') {
+      return (
+         <>
+            <div>{ date }</div>
+            <li className={ `carditem ${cardColor()}` }>
+               <div
+                  className='carditem-front'
+               >
+                  <div className="carditem-reward-wrp">
+                     <span className="carditem-reward" >{ reward }</span>
+                  </div>
+                  <p className="carditem-text">{ task }</p>
+               </div>
+            </li>
+         </>
+      )
+   }
+
 
    return (
       <li className={ `carditem ${cardColor()} ${toggleClass.active ? 'is-flipped' : null} ` }>
@@ -91,7 +110,7 @@ export const Card = ({ reward, task }) => {
             </div>
          }
 
-         {current.matches("taskcomplite") &&
+         { current.matches("taskcomplite") &&
             <div className='carditem-complite'>
                <svg className='carditem-circle-img' width="122" height="122" viewBox="0 0 122 122" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="61" cy="61" r="60" stroke="#FF8933" strokeDasharray="5 5" />
