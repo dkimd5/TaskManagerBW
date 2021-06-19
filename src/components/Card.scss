@@ -7,7 +7,7 @@
    transition: transform 1s;
    transform-style: preserve-3d;
    margin: 20px;
-   
+
    &-front {
       padding: 0 20px 24px;
       cursor: pointer;
@@ -190,7 +190,7 @@
       }
    }
 
-    &-welldone-img {
+   &-welldone-img {
       position: absolute;
       top: 62px;
       left: 50%;
@@ -201,6 +201,10 @@
       display: block;
       margin: 0 auto;
    }
+}
+
+.cardClosed {
+   display: none;
 }
 
 .is-flipped {
