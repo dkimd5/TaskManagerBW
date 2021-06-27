@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import React, { useState } from "react";
 import { useParams } from "react-router";
 import { Card } from "./Card";
+import { AddCard } from "./AddCard";
 import "./CardsList.scss";
 
 const today = format(new Date(), "EEEE, MMMM d");
@@ -56,6 +57,7 @@ export const CardsList = () => {
                      id={ id }
                   />
                )) }
+               <AddCard />
             </ul>
          )
       } else if (Object.keys(cardsArray).length == 0) {
@@ -85,22 +87,6 @@ export const CardsList = () => {
          )
       }
    }
-
-   // <ul className="cardslist">
-   //             {
-   //                Object.keys(cardsArray).map(date => (
-   //                   cardsArray[date].map((card, index) => (
-   //                      <Card
-   //                         key={ index }
-   //                         reward={ card.reward }
-   //                         task={ card.task }
-   //                         id={ id }
-   //                         date={ date }
-   //                      />
-   //                   ))
-   //                ))
-   //             }
-   //          </ul>
 
    if (id === 'history') { return cardsRender(history) }
 
