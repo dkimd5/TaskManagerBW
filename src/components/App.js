@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./reset.css";
-import { CardsList } from "./CardsList";
+import { CardList } from "./CardList";
 import {
    BrowserRouter as Router,
    Switch,
@@ -9,11 +9,7 @@ import {
 } from "react-router-dom";
 
 
-
-
 export const App = () => {
-
-
 
    return (
       <Router>
@@ -28,10 +24,10 @@ export const App = () => {
 
          <Switch>
             <Route path='/' exact>
-               <CardsList />
+               <CardList />
             </Route>
             <Route path='/:id'>
-               <CardsList />
+               <CardList />
             </Route>
          </Switch>
 

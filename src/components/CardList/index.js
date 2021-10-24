@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { Card } from "./Card";
 import { AddCard } from "./AddCard";
 import "./CardsList.scss";
+import "./styles.scss";
 
 const today = format(new Date(), "EEEE, MMMM d");
 var d = new Date();
@@ -38,7 +39,7 @@ const cardsHistory = {
 }
 
 
-export const CardsList = () => {
+export const CardList = () => {
    const [cards, setCards] = useState(initialCards);
    const [history, setHistory] = useState(cardsHistory);
    const { id } = useParams();
@@ -87,6 +88,22 @@ export const CardsList = () => {
          )
       }
    }
+
+   // <ul className="cardlist">
+   //             {
+   //                Object.keys(cardsArray).map(date => (
+   //                   cardsArray[date].map((card, index) => (
+   //                      <Card
+   //                         key={ index }
+   //                         reward={ card.reward }
+   //                         task={ card.task }
+   //                         id={ id }
+   //                         date={ date }
+   //                      />
+   //                   ))
+   //                ))
+   //             }
+   //          </ul>
 
    if (id === 'history') { return cardsRender(history) }
 
