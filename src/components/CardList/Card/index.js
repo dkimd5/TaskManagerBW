@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import "./Card.scss"
+import "./styles.scss"
 import { createMachine } from 'xstate';
 import { useMachine } from '@xstate/react';
 
