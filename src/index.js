@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./components/App";
 import firebase from "firebase";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 let firebaseConfig = {
    apiKey: "AIzaSyBuZc1sqAqAQt2eCDOSAymR38KngE2zDs4",
@@ -17,4 +19,8 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(
+   <Provider store={ store }>
+      <App />
+   </Provider >,
+   document.getElementById("app"));

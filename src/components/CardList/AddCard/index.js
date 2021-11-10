@@ -1,7 +1,7 @@
 import React from "react";
 import { createMachine } from 'xstate';
 import { useMachine } from '@xstate/react';
-import "./AddCard.scss";
+import "./styles.scss";
 
 //FSM-------------------------------------------------------------------
 const addCardMachine = createMachine({

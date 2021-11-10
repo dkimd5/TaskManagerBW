@@ -3,15 +3,12 @@ import React, { useState } from "react";
 import { useParams } from "react-router";
 import { Card } from "./Card";
 import { AddCard } from "./AddCard";
-import "./CardsList.scss";
 import "./styles.scss";
 
 const today = format(new Date(), "EEEE, MMMM d");
 var d = new Date();
 const yesterday = format(d.setDate(d.getDate() - 1), "EEEE, MMMM d");
 const beforeYesterday = format(d.setDate(d.getDate() - 2), "EEEE, MMMM d");
-
-console.log(yesterday)
 
 const initialCards = [
    { reward: 125, task: "Find dad's wallet", date: today },
@@ -43,8 +40,6 @@ export const CardList = () => {
    const [cards, setCards] = useState(initialCards);
    const [history, setHistory] = useState(cardsHistory);
    const { id } = useParams();
-
-   // const dates = Object.keys(history);
 
    const cardsRender = (cardsArray) => {
       if (cardsArray == cards) {
@@ -88,22 +83,6 @@ export const CardList = () => {
          )
       }
    }
-
-   // <ul className="cardlist">
-   //             {
-   //                Object.keys(cardsArray).map(date => (
-   //                   cardsArray[date].map((card, index) => (
-   //                      <Card
-   //                         key={ index }
-   //                         reward={ card.reward }
-   //                         task={ card.task }
-   //                         id={ id }
-   //                         date={ date }
-   //                      />
-   //                   ))
-   //                ))
-   //             }
-   //          </ul>
 
    if (id === 'history') { return cardsRender(history) }
 
