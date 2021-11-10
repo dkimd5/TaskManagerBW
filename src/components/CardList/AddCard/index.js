@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { format } from "date-fns";
 import { createMachine } from 'xstate';
 import { useMachine } from '@xstate/react';
+import { useDispatch } from "react-redux";
 import "./styles.scss";
+import { addCard } from "../../../store/cards/actions";
 
 //FSM-------------------------------------------------------------------
 const addCardMachine = createMachine({
@@ -24,12 +27,33 @@ const addCardMachine = createMachine({
 })
 //FSM-------------------------------------------------------------------
 
+const today = format(new Date(), "EEEE, MMMM d");
+
 export const AddCard = () => {
 
+   const dispatch = useDispatch();
+
    const [current, send] = useMachine(addCardMachine);
+   const [text, setText] = useState("");
+   const [reward, setReward] = useState("");
+
+   const handleChangeText = (e) => {
+      setText(e.target.text);
+   }
+
+   const handleChangeReward = (e) => {
+      setReward(e.target.reward);
+   }
+
+   const handleAddCard = () => {
+      if (text && reward) {
+         dispatch(addCard({ reward: reward, task: text, date: today }))
+         setText('');
+         setReward('');
+      }
+   }
 
    return (
-      // <li className="addCard">
       <>
          {
             current.matches("addcard") &&
@@ -45,12 +69,24 @@ export const AddCard = () => {
                <div className="card-options-wrp">
                   <h3>New housework task</h3>
                   <label for="cardText">Title</label>
-                  <input id="cardText" type="text"></input>
+                  <input
+                     value={ text }
+                     id="cardText"
+                     type="text"
+                     onChange={ handleChangeReward }
+                  >
+                  </input>
                   <label for="cardReward">Reward</label>
-                  <input id="cardReward" type="text"></input>
+                  <input
+                     value={ reward }
+                     id="cardReward"
+                     type="text"
+                     onChange={ handleChangeText }
+                  >
+                  </input>
                </div>
                <button>Cancel</button>
-               <button>Create</button>
+               <button onClick={ handleAddCard }>Create</button>
             </li>
          }
       </>
