@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./reset.css";
-import { CardList } from "./CardList";
+import { CardList } from "./CardList/CardList";
 import {
    BrowserRouter as Router,
    Switch,

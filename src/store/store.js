@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { combRed } from "./reducers";
+import { combRed } from "./reducers/reducers";
 import "regenerator-runtime/runtime";
 
 export const store = createStore(

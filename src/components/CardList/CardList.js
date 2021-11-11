@@ -1,8 +1,8 @@
 import { format } from "date-fns";
 import React, { useState } from "react";
 import { useParams } from "react-router";
-import { Card } from "./Card";
-import { AddCard } from "./AddCard";
+import { Card } from "./Card/Card";
+import { AddCard } from "./AddCard/AddCard";
 import "./styles.scss";
 import { useSelector } from "react-redux";
 

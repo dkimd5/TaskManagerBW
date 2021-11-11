@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { App } from "./components/App";
 import firebase from "firebase";
 import { Provider } from "react-redux";
-import { store } from "./store";
+import { store } from "./store/store";
 
 let firebaseConfig = {
    apiKey: "AIzaSyBuZc1sqAqAQt2eCDOSAymR38KngE2zDs4",
