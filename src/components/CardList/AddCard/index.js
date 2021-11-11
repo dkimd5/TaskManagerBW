@@ -38,11 +38,11 @@ export const AddCard = () => {
    const [reward, setReward] = useState("");
 
    const handleChangeText = (e) => {
-      setText(e.target.text);
+      setText(e.target.value);
    }
 
    const handleChangeReward = (e) => {
-      setReward(e.target.reward);
+      setReward(e.target.value);
    }
 
    const handleAddCard = () => {
@@ -68,22 +68,24 @@ export const AddCard = () => {
             <li className="card-options">
                <div className="card-options-wrp">
                   <h3>New housework task</h3>
-                  <label for="cardText">Title</label>
-                  <input
-                     value={ text }
-                     id="cardText"
-                     type="text"
-                     onChange={ handleChangeReward }
-                  >
-                  </input>
-                  <label for="cardReward">Reward</label>
-                  <input
-                     value={ reward }
-                     id="cardReward"
-                     type="text"
-                     onChange={ handleChangeText }
-                  >
-                  </input>
+                  <form>
+                     <label htmlFor="cardText">Title</label>
+                     <input
+                        value={ text }
+                        id="cardText"
+                        type="text"
+                        onChange={ handleChangeText }
+                     >
+                     </input>
+                     <label htmlFor="cardReward">Reward</label>
+                     <input
+                        value={ reward }
+                        id="cardReward"
+                        type="text"
+                        onChange={ handleChangeReward }
+                     >
+                     </input>
+                  </form>
                </div>
                <button>Cancel</button>
                <button onClick={ handleAddCard }>Create</button>
