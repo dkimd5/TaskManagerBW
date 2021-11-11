@@ -29,14 +29,26 @@ const cardsHistory = {
    ]
 }
 
+function compareDate(a, b) {
+   if (a.date < b.date) {
+      return 1;
+   }
+   if (a.date > b.date) {
+      return -1;
+   }
+   return 0;
+}
+
 
 export const CardList = () => {
    const cards = useSelector(state => state.cards)
    const [history, setHistory] = useState(cardsHistory);
    const { id } = useParams();
 
+   const sortedCards = cards.sort(compareDate);
+
    const cardsRender = (cardsArray) => {
-      if (cardsArray == cards) {
+      if (cardsArray == sortedCards) {
          return (
             <ul className="cardslist">
                { cardsArray.map((card, index) => (
