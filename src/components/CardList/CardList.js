@@ -18,8 +18,8 @@ function compareDate(a, b) {
 
 
 export const CardList = () => {
-   const cards = useSelector(state => state.cards)
-   const [history, setHistory] = useState(cardsHistory);
+   const cards = useSelector(state => state.cards);
+   const cardsHistory = useSelector(state => state.cardsHistory);
    const { id } = useParams();
 
    const sortedCards = cards.sort(compareDate);
@@ -67,7 +67,7 @@ export const CardList = () => {
       }
    }
 
-   if (id === 'history') { return cardsRender(history) }
+   if (id === 'history') { return cardsRender(cardsHistory) }
 
    return (
       cardsRender(cards)
