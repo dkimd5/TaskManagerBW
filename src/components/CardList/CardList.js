@@ -1,15 +1,10 @@
-import { format } from "date-fns";
 import React, { useState } from "react";
 import { useParams } from "react-router";
 import { Card } from "./Card/Card";
 import { AddCard } from "./AddCard/AddCard";
 import "./styles.scss";
 import { useSelector } from "react-redux";
-
-const today = format(new Date(), "EEEE, MMMM d");
-let d = new Date();
-const yesterday = format(d.setDate(d.getDate() - 1), "EEEE, MMMM d");
-const beforeYesterday = format(d.setDate(d.getDate() - 2), "EEEE, MMMM d");
+import { TODAY } from "/src/utils/constants";
 
 function compareDate(a, b) {
    if (a.date < b.date) {
@@ -52,7 +47,7 @@ export const CardList = () => {
       else {
          return (Object.keys(cardsArray).map(date => (
             <div key={ Math.random() }>
-               <h3>{ today === date ? <span>Today</span> : "" } { date }</h3>
+               <h3>{ TODAY === date ? <span>Today</span> : "" } { date }</h3>
                <ul className="cardslist">
                   {
                      cardsArray[date].map((card, index) => (

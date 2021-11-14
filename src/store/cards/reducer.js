@@ -1,17 +1,13 @@
 import { ADD_CARD } from './actions';
-import { format } from "date-fns";
-
-const today = format(new Date(), "EEEE, MMMM d");
-let d = new Date();
-const yesterday = format(d.setDate(d.getDate() - 1), "EEEE, MMMM d");
+import { TODAY, YESTERDAY } from "/src/utils/constants";
 
 const initialState = [
-   { reward: 125, task: "Find dad's wallet", date: yesterday },
+   { reward: 125, task: "Find dad's wallet", date: YESTERDAY },
    { reward: 100, task: "Put away old toys to white boxes on the balkoney", date: today },
-   { reward: 75, task: "Wash the dishes", date: today },
-   { reward: 50, task: "Make your bed in the morning", date: yesterday },
-   { reward: 50, task: "Fix the pillowcase", date: today },
-   { reward: 50, task: "Water plants", date: yesterday },
+   { reward: 75, task: "Wash the dishes", date: TODAY },
+   { reward: 50, task: "Make your bed in the morning", date: YESTERDAY },
+   { reward: 50, task: "Fix the pillowcase", date: TODAY },
+   { reward: 50, task: "Water plants", date: YESTERDAY },
 ];
 
 export const cardsReducer = (state = initialState, action) => {

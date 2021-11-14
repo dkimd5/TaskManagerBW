@@ -1,18 +1,19 @@
 import { MOVE_CARD_TO_HISTORY } from "./actions";
+import { TODAY, YESTERDAY, BEFORE_YESTERDAY } from "/src/utils/constants";
 
 const initialState = {
-   [today]: [
-      { reward: 125, task: "Find dad's wallet", date: today },
-      { reward: 100, task: "Put away old toys to white boxes on the balkoney", date: today },
-      { reward: 75, task: "Wash the dishes", date: today },
+   [TODAY]: [
+      { reward: 125, task: "Find dad's wallet", date: TODAY },
+      { reward: 100, task: "Put away old toys to white boxes on the balkoney", date: TODAY },
+      { reward: 75, task: "Wash the dishes", date: TODAY },
    ],
-   [yesterday]: [
-      { reward: 75, task: "Wash the dishes", date: yesterday },
-      { reward: 50, task: "Water plants on the second floor", date: yesterday },
+   [YESTERDAY]: [
+      { reward: 75, task: "Wash the dishes", date: YESTERDAY },
+      { reward: 50, task: "Water plants on the second floor", date: YESTERDAY },
    ],
-   [beforeYesterday]: [
-      { reward: 100, task: "Help grandma with shopping", date: beforeYesterday },
-      { reward: 50, task: "Water plants", date: beforeYesterday },
+   [BEFORE_YESTERDAY]: [
+      { reward: 100, task: "Help grandma with shopping", date: BEFORE_YESTERDAY },
+      { reward: 50, task: "Water plants", date: BEFORE_YESTERDAY },
    ]
 }
 
