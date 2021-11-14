@@ -7,27 +7,9 @@ import "./styles.scss";
 import { useSelector } from "react-redux";
 
 const today = format(new Date(), "EEEE, MMMM d");
-var d = new Date();
+let d = new Date();
 const yesterday = format(d.setDate(d.getDate() - 1), "EEEE, MMMM d");
 const beforeYesterday = format(d.setDate(d.getDate() - 2), "EEEE, MMMM d");
-
-
-
-const cardsHistory = {
-   [today]: [
-      { reward: 125, task: "Find dad's wallet", date: today },
-      { reward: 100, task: "Put away old toys to white boxes on the balkoney", date: today },
-      { reward: 75, task: "Wash the dishes", date: today },
-   ],
-   [yesterday]: [
-      { reward: 75, task: "Wash the dishes", date: yesterday },
-      { reward: 50, task: "Water plants on the second floor", date: yesterday },
-   ],
-   [beforeYesterday]: [
-      { reward: 100, task: "Help grandma with shopping", date: beforeYesterday },
-      { reward: 50, task: "Water plants", date: beforeYesterday },
-   ]
-}
 
 function compareDate(a, b) {
    if (a.date < b.date) {

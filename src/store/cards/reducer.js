@@ -2,7 +2,7 @@ import { ADD_CARD } from './actions';
 import { format } from "date-fns";
 
 const today = format(new Date(), "EEEE, MMMM d");
-var d = new Date();
+let d = new Date();
 const yesterday = format(d.setDate(d.getDate() - 1), "EEEE, MMMM d");
 
 const initialState = [
