@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Card } from "./Card/Card";
 import { AddCard } from "./AddCard/AddCard";
 import "./styles.scss";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { TODAY } from "/src/utils/constants";
+import { createCardsCollection } from "../../store/cards/actions";
 
 function compareDate(a, b) {
    if (a.date < b.date) {
@@ -21,8 +22,14 @@ export const CardList = () => {
    const cards = useSelector(state => state.cards);
    const cardsHistory = useSelector(state => state.cardsHistory);
    const { id } = useParams();
+   const dispatch = useDispatch()
+
+   useEffect(() => {
+      dispatch(createCardsCollection());
+   }, [])
 
    const sortedCards = cards.sort(compareDate);
+
 
    const cardsRender = (cardsArray) => {
       if (cardsArray == sortedCards) {
