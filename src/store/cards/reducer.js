@@ -1,26 +1,64 @@
-import { ADD_CARD } from './actions';
-import { TODAY, YESTERDAY } from "/src/utils/constants";
+import { 
+   ADD_CARD, 
+   CARD_COLLECTION_INIT,
+   CARD_COLLECTION_INIT_SUCCESS,
+   CARD_COLLECTION_INIT_FAILURE,
+   CARD_COLLECTION_GET_REQUEST,
+   CARD_COLLECTION_GET_SUCCESS,
+   CARD_COLLECTION_GET_FAILURE
+ } from './actions';
 
-// const initialState = [
-//    { reward: 125, task: "Find dad's wallet", date: YESTERDAY },
-//    { reward: 100, task: "Put away old toys to white boxes on the balkoney", date: TODAY },
-//    { reward: 75, task: "Wash the dishes", date: TODAY },
-//    { reward: 50, task: "Make your bed in the morning", date: YESTERDAY },
-//    { reward: 50, task: "Fix the pillowcase", date: TODAY },
-//    { reward: 50, task: "Water plants", date: YESTERDAY },
-// ];
 
 const initialState = {
-   cardsList: []
+   cardList: [],
+   request: {
+      error: '',
+   }
 }
 
-export const cardReducer = (state = initialState, action) => {
+export const cardListReducer = (state = initialState, action) => {
    switch (action.type) {
       case ADD_CARD: {
-         return [
+         return {
+            cardList: [...state.cardList, action.payload]
+         }
+      };
+      case CARD_COLLECTION_INIT: {
+         return {
+            ...state
+         }
+      };
+      case CARD_COLLECTION_INIT_SUCCESS: {
+         return {
+            ...state
+         }
+      };
+      case CARD_COLLECTION_INIT_FAILURE: {
+         return {
             ...state,
-            action.payload
-         ]
+            request: {
+               error: action.payload,
+            }
+         }
+      };
+      case CARD_COLLECTION_GET_REQUEST: {
+         return {
+            ...state
+         }
+      };
+      case CARD_COLLECTION_GET_SUCCESS: {
+         return {
+            ...state,
+            cardList: action.payload,
+         }
+      };
+      case CARD_COLLECTION_GET_FAILURE: {
+         return {
+            ...state,
+            request: {
+               error: action.payload,
+            }
+         }
       };
       default:
          return state;
