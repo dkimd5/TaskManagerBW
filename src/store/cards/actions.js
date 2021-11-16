@@ -1,13 +1,13 @@
 import { doc, setDoc, getDoc, Timestamp } from "firebase/firestore";
 import db from "/src/firebase";
 
-export const ADD_CARD = 'CARD_LIST::ADD_CARD';
-export const CARD_COLLECTION_INIT = 'CARD_LIST::CARD_COLLECTION_INIT';
-export const CARD_COLLECTION_INIT_SUCCESS = 'CARDS_LIST::CARD_COLLECTION_INIT_SUCCESS';
-export const CARD_COLLECTION_INIT_FAILURE = 'CARDS_LIST::CARD_COLLECTION_INIT_FAILURE';
-export const CARD_COLLECTION_GET_REQUEST = 'CARD_LIST::CARD_COLLECTION_GET_REQUEST';
-export const CARD_COLLECTION_GET_SUCCESS = 'CARD_LIST::CARD_COLLECTION_GET_SUCCESS';
-export const CARD_COLLECTION_GET_FAILURE = 'CARD_LIST::CARD_COLLECTION_GET_FAILURE';
+export const ADD_CARD = 'CARDS_LIST::ADD_CARD';
+export const INIT_CARDS_COLLECTION_REQUEST = 'CARDS_LIST::INIT_CARDS_COLLECTION_REQUEST';
+export const INIT_CARDS_COLLECTION_SUCCESS = 'CARDS_LIST::INIT_CARDS_COLLECTION_SUCCESS';
+export const INIT_CARDS_COLLECTION_FAILURE = 'CARDS_LIST::INIT_CARDS_COLLECTION_FAILURE';
+export const GET_CARDS_LIST_REQUEST = 'CARDS_LIST::GET_CARDS_LIST_REQUEST';
+export const GET_CARDS_LIST_SUCCESS = 'CARDS_LIST::GET_CARDS_LIST_SUCCESS';
+export const GET_CARDS_LIST_FAILURE = 'CARDS_LIST::GET_CARDS_LIST_FAILURE';
 
 
 export const addCard = newCard => ({
@@ -15,35 +15,35 @@ export const addCard = newCard => ({
    payload: newCard,
 })
 
-export const cardCollectionInit = () => ({
-   type: CARD_COLLECTION_INIT,
+export const initCardsCollectionRequest = () => ({
+   type: INIT_CARDS_COLLECTION_REQUEST,
 })
 
-export const cardCollectionInitFailure = (error) => ({
-   type: CARD_COLLECTION_INIT_FAILURE,
+export const initCardsCollectionFailure = (error) => ({
+   type: INIT_CARDS_COLLECTION_FAILURE,
    payload: error,
 })
 
-export const cardCollectionInitSuccess = () => ({
-   type: CARD_COLLECTION_INIT_SUCCESS,
+export const initCardsCollectionSuccess = () => ({
+   type: INIT_CARDS_COLLECTION_SUCCESS,
 })
 
-export const cardCollectionGetRequest = () => ({
-   type: CARD_COLLECTION_INIT,
+export const getCardsListRequest = () => ({
+   type: GET_CARDS_LIST_REQUEST,
 })
 
-export const cardCollectionGetFailure = (error) => ({
-   tyep: CARD_COLLECTION_GET_FAILURE,
+export const getCardsListFailure = (error) => ({
+   tyep: GET_CARDS_LIST_FAILURE,
    payload: error,
 })
 
-export const cardCollectionGetSuccess = (cardList) => ({
-   type: CARD_COLLECTION_GET_SUCCESS,
-   payload: cardList,
+export const getCardsListSuccess = (cardsList) => ({
+   type: GET_CARDS_LIST_SUCCESS,
+   payload: cardsList,
 })
 
-export const initCardCollection = () => async (dispatch) => {
-   dispatch(cardCollectionInit())
+export const initCardsCollection = () => async (dispatch) => {
+   dispatch(initCardsCollectionRequest());
 
    try {
       const docRef = await setDoc(doc(db, "cards", "cardsList"), {
@@ -57,16 +57,16 @@ export const initCardCollection = () => async (dispatch) => {
          ]
       });
 
-      dispatch(cardCollectionInitSuccess())
+      dispatch(initCardsCollectionSuccess())
       console.log("Document written with ID: ", docRef?.id);
    } catch (e) {
-      dispatch(cardCollectionInitFailure(e.message))
+      dispatch(initCardsCollectionFailure(e.message))
       console.error("Error adding document: ", e);
    }
 }
 
-export const getCardCollection = () => async (dispatch) => {
-   dispatch(cardCollectionGetRequest());
+export const getCardsList = () => async (dispatch) => {
+   dispatch(getCardsListRequest());
 
    try {
       const docRef = doc(db, "cards", "cardsList");
@@ -75,8 +75,8 @@ export const getCardCollection = () => async (dispatch) => {
       const data = docSnap.data().cardsList;
       console.log(data);
 
-      dispatch(cardCollectionGetSuccess(data))
+      dispatch(getCardsListSuccess(data))
    } catch (err) {
-      dispatch(cardCollectionGetFailure(err.message))
+      dispatch(getCardsListFailure(err.message))
    }
 }

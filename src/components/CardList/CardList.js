@@ -5,7 +5,7 @@ import { AddCard } from "./AddCard/AddCard";
 import "./styles.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { TODAY } from "/src/utils/constants";
-import { initCardCollection, getCardCollection } from "../../store/cards/actions";
+import { initCardsCollection, getCardsList } from "../../store/cards/actions";
 
 function compareDate(a, b) {
    if (a.date < b.date) {
@@ -25,11 +25,11 @@ export const CardList = () => {
    const dispatch = useDispatch()
 
    useEffect(() => {
-      dispatch(initCardCollection());
+      dispatch(initCardsCollection());
    }, [])
 
    useEffect(() => {
-      dispatch(getCardCollection());
+      dispatch(getCardsList());
    }, [])
 
    const sortedCards = cards.sort(compareDate);
