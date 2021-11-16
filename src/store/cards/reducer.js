@@ -1,16 +1,16 @@
 import { 
    ADD_CARD, 
-   CARD_COLLECTION_INIT,
-   CARD_COLLECTION_INIT_SUCCESS,
-   CARD_COLLECTION_INIT_FAILURE,
-   CARD_COLLECTION_GET_REQUEST,
-   CARD_COLLECTION_GET_SUCCESS,
-   CARD_COLLECTION_GET_FAILURE
+   INIT_CARDS_COLLECTION_REQUEST,
+   INIT_CARDS_COLLECTION_SUCCESS,
+   INIT_CARDS_COLLECTION_FAILURE,
+   GET_CARDS_LIST_REQUEST,
+   GET_CARDS_LIST_SUCCESS,
+   GET_CARDS_LIST_FAILURE
  } from './actions';
 
 
 const initialState = {
-   cardList: [],
+   cardsList: [],
    request: {
       error: '',
    }
@@ -20,20 +20,20 @@ export const cardListReducer = (state = initialState, action) => {
    switch (action.type) {
       case ADD_CARD: {
          return {
-            cardList: [...state.cardList, action.payload]
+            cardsList: [...state.cardsList, action.payload]
          }
       };
-      case CARD_COLLECTION_INIT: {
+      case INIT_CARDS_COLLECTION_REQUEST: {
          return {
             ...state
          }
       };
-      case CARD_COLLECTION_INIT_SUCCESS: {
+      case INIT_CARDS_COLLECTION_SUCCESS: {
          return {
             ...state
          }
       };
-      case CARD_COLLECTION_INIT_FAILURE: {
+      case INIT_CARDS_COLLECTION_FAILURE: {
          return {
             ...state,
             request: {
@@ -41,18 +41,18 @@ export const cardListReducer = (state = initialState, action) => {
             }
          }
       };
-      case CARD_COLLECTION_GET_REQUEST: {
+      case GET_CARDS_LIST_REQUEST: {
          return {
             ...state
          }
       };
-      case CARD_COLLECTION_GET_SUCCESS: {
+      case GET_CARDS_LIST_SUCCESS: {
          return {
             ...state,
-            cardList: action.payload,
+            cardsList: action.payload,
          }
       };
-      case CARD_COLLECTION_GET_FAILURE: {
+      case GET_CARDS_LIST_FAILURE: {
          return {
             ...state,
             request: {

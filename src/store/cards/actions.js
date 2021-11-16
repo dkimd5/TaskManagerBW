@@ -46,7 +46,7 @@ export const initCardsCollection = () => async (dispatch) => {
    dispatch(initCardsCollectionRequest());
 
    try {
-      const docRef = await setDoc(doc(db, "cards", "cardsList"), {
+      await setDoc(doc(db, "cards", "cardsList"), {
          cardsList: [
             { reward: 125, task: "Find dad's wallet", date: Timestamp.fromDate(new Date("November 15, 2021")) },
             { reward: 100, task: "Put away old toys to white boxes on the balkoney", date: Timestamp.fromDate(new Date("November 13, 2021")) },
@@ -57,11 +57,10 @@ export const initCardsCollection = () => async (dispatch) => {
          ]
       });
 
-      dispatch(initCardsCollectionSuccess())
-      console.log("Document written with ID: ", docRef?.id);
+      dispatch(initCardsCollectionSuccess());
+
    } catch (e) {
-      dispatch(initCardsCollectionFailure(e.message))
-      console.error("Error adding document: ", e);
+      dispatch(initCardsCollectionFailure(e.message));
    }
 }
 

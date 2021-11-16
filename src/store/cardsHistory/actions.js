@@ -44,5 +44,44 @@ export const getCardsHistorySuccess = (cardList) => ({
 export const initCardsHistory = () => async (dispatch) => {
    dispatch(initCardsHistoryRequest());
 
-   
+   try {
+      await setDoc(doc(db, "cards", "cardsHistory"), {
+         [Timestamp.fromDate(new Date("November 15, 2021"))]: [
+            { reward: 125, task: "Find dad's wallet", date: TODAY },
+            { reward: 100, task: "Put away old toys to white boxes on the balkoney", date: TODAY },
+            { reward: 75, task: "Wash the dishes", date: TODAY },
+         ],
+         [Timestamp.fromDate(new Date("November 14, 2021"))]: [
+            { reward: 75, task: "Wash the dishes", date: YESTERDAY },
+            { reward: 50, task: "Water plants on the second floor", date: YESTERDAY },
+         ],
+         [Timestamp.fromDate(new Date("November 13, 2021"))]: [
+            { reward: 100, task: "Help grandma with shopping", date: BEFORE_YESTERDAY },
+            { reward: 50, task: "Water plants", date: BEFORE_YESTERDAY },
+         ],
+      });
+
+      console.log("initCardsHistoryRequest")
+
+      dispatch(initCardsHistorySuccess());
+
+   } catch (e) {
+      dispatch(initCardsHistoryFailure());
+   }
+}
+
+export const getCardsHistory = () => async (dispatch) => {
+   dispatch(getCardsHistoryRequest());
+
+   try {
+      const docRef = doc(db, "cards", "cardsHistory");
+      const docSnap = await getDoc(docRef);
+
+      const data = docSnap.data();
+      console.log(data);
+
+      dispatch(getCardsListSuccess(data))
+   } catch (err) {
+      dispatch(getCardsListFailure(err.message))
+   }
 }

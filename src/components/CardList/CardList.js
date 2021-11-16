@@ -6,6 +6,7 @@ import "./styles.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { TODAY } from "/src/utils/constants";
 import { initCardsCollection, getCardsList } from "../../store/cards/actions";
+import { initCardsHistory } from "../../store/cardsHistory/actions";
 
 function compareDate(a, b) {
    if (a.date < b.date) {
@@ -17,6 +18,8 @@ function compareDate(a, b) {
    return 0;
 }
 
+//TODO: loader for cards and check initCardsHistory
+
 
 export const CardList = () => {
    const cards = useSelector(state => state.cards.cardList);
@@ -24,22 +27,25 @@ export const CardList = () => {
    const { id } = useParams();
    const dispatch = useDispatch()
 
+   console.log(cards)
+
    useEffect(() => {
       dispatch(initCardsCollection());
+      dispatch(initCardsHistory());
    }, [])
 
    useEffect(() => {
       dispatch(getCardsList());
    }, [])
 
-   const sortedCards = cards.sort(compareDate);
+   const sortedCards = cards?.sort(compareDate);
 
 
    const cardsRender = (cardsArray) => {
       if (cardsArray == sortedCards) {
          return (
             <ul className="cardslist">
-               { cardsArray.map((card, index) => (
+               { cardsArray?.map((card, index) => (
                   <Card
                      key={ index }
                      reward={ card.reward }
@@ -81,6 +87,6 @@ export const CardList = () => {
    if (id === 'history') { return cardsRender(cardsHistory) }
 
    return (
-      cardsRender(cards)
+      cardsRender(sortedCards)
    )
 }
