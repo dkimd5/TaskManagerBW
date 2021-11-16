@@ -72,7 +72,7 @@ export const getCardCollection = () => async (dispatch) => {
       const docRef = doc(db, "cards", "cardsList");
       const docSnap = await getDoc(docRef);
 
-      const data = docSnap;
+      const data = docSnap.data().cardsList;
       console.log(data);
 
       dispatch(cardCollectionGetSuccess(data))
