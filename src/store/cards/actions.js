@@ -1,4 +1,4 @@
-import { doc, setDoc, getDoc, Timestamp } from "firebase/firestore";
+import { doc, setDoc, getDoc, updateDoc, Timestamp } from "firebase/firestore";
 import db from "/src/firebase";
 
 export const ADD_CARD = 'CARDS_LIST::ADD_CARD';
@@ -10,7 +10,7 @@ export const GET_CARDS_LIST_SUCCESS = 'CARDS_LIST::GET_CARDS_LIST_SUCCESS';
 export const GET_CARDS_LIST_FAILURE = 'CARDS_LIST::GET_CARDS_LIST_FAILURE';
 
 
-export const addCard = newCard => ({
+export const addCardRequest = newCard => ({
    type: ADD_CARD,
    payload: newCard,
 })
@@ -72,10 +72,33 @@ export const getCardsList = () => async (dispatch) => {
       const docSnap = await getDoc(docRef);
 
       const data = docSnap.data().cardsList;
-      console.log(data);
+      // console.log(data);
 
       dispatch(getCardsListSuccess(data))
    } catch (err) {
       dispatch(getCardsListFailure(err.message))
+   }
+}
+
+export const addCard = (newCard) => async (dispatch) => {
+   dispatch(addCardRequest());
+
+   try {
+      const docRef = doc(db, "cards", "cardsList");
+
+      const docSnap = await getDoc(docRef);
+      const data = docSnap.data().cardsList;
+
+      await updateDoc(docRef, {
+         cardsList: [
+            ...data,
+            newCard,
+         ]
+      });
+
+      getCardsList();
+
+   } catch (err) {
+      console.log(err.message)
    }
 }

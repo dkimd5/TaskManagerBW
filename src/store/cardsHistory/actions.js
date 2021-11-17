@@ -1,5 +1,6 @@
 import { doc, setDoc, getDoc, Timestamp } from "firebase/firestore";
 import db from "/src/firebase";
+import { format } from "date-fns";
 
 export const MOVE_CARD_TO_HISTORY = 'CARDS_HISTORY::MOVE_CARD_TO_HISTORY';
 export const INIT_CARDS_HISTORY_REQUEST = 'CARDS_HISTORY::INIT_CARDS_HISTORY_REQUEST';
@@ -43,25 +44,25 @@ export const getCardsHistorySuccess = (cardList) => ({
 
 export const initCardsHistory = () => async (dispatch) => {
    dispatch(initCardsHistoryRequest());
-   
+
    try {
       await setDoc(doc(db, "cards", "cardsHistory"), {
-         [Timestamp.fromDate(new Date("November 15, 2021"))]: [
-            { reward: 125, task: "Find dad's wallet", date: Timestamp.fromDate(new Date("November 15, 2021")) },
-            { reward: 100, task: "Put away old toys to white boxes on the balkoney", date: Timestamp.fromDate(new Date("November 15, 2021")) },
-            { reward: 75, task: "Wash the dishes", date: Timestamp.fromDate(new Date("November 15, 2021")) },
+         [format(new Date(2021, 10, 17), 'EEEE, dd MMMM')]: [
+            { reward: 125, task: "Find dad's wallet", date: format(new Date(2021, 10, 17), 'dd MMMM') },
+            { reward: 100, task: "Put away old toys to white boxes on the balkoney", date: format(new Date(2021, 10, 17), 'dd MMMM') },
+            { reward: 75, task: "Wash the dishes", date: format(new Date(2021, 10, 17), 'dd MMMM') },
          ],
-         [Timestamp.fromDate(new Date("November 14, 2021"))]: [
-            { reward: 75, task: "Wash the dishes", date: Timestamp.fromDate(new Date("November 14, 2021")) },
-            { reward: 50, task: "Water plants on the second floor", date: Timestamp.fromDate(new Date("November 14, 2021")) },
+         [format(new Date(2021, 11, 14), 'dd MMMM')]: [
+            { reward: 75, task: "Wash the dishes", date: format(new Date(2021, 11, 14), 'dd MMMM') },
+            { reward: 50, task: "Water plants on the second floor", date: format(new Date(2021, 11, 14), 'dd MMMM') },
          ],
-         [Timestamp.fromDate(new Date("November 13, 2021"))]: [
-            { reward: 100, task: "Help grandma with shopping", date: Timestamp.fromDate(new Date("November 13, 2021")) },
-            { reward: 50, task: "Water plants", date: Timestamp.fromDate(new Date("November 13, 2021")) },
+         [format(new Date(2021, 11, 13), 'dd MMMM')]: [
+            { reward: 100, task: "Help grandma with shopping", date: format(new Date(2021, 11, 13), 'dd MMMM') },
+            { reward: 50, task: "Water plants", date: format(new Date(2021, 11, 13), 'dd MMMM') },
          ],
       });
 
-      
+
       dispatch(initCardsHistorySuccess());
 
    } catch (e) {
@@ -78,10 +79,10 @@ export const getCardsHistory = () => async (dispatch) => {
       const docSnap = await getDoc(docRef);
 
       const data = docSnap.data();
-      console.log(data);
 
-      dispatch(getCardsListSuccess(data))
+      dispatch(getCardsHistorySuccess(data))
    } catch (err) {
-      dispatch(getCardsListFailure(err.message))
+      dispatch(getCardsHistoryFailure(err.message))
+      console.log(err.message)
    }
 }

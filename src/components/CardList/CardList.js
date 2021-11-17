@@ -6,7 +6,7 @@ import "./styles.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { TODAY } from "/src/utils/constants";
 import { initCardsCollection, getCardsList } from "../../store/cards/actions";
-import { initCardsHistory } from "../../store/cardsHistory/actions";
+import { initCardsHistory, getCardsHistory } from "../../store/cardsHistory/actions";
 
 function compareDate(a, b) {
    if (a.date < b.date) {
@@ -18,16 +18,14 @@ function compareDate(a, b) {
    return 0;
 }
 
-//TODO: loader for cards
+//TODO: loader for cards, вынести setDate в отедльную функцию
 
 
 export const CardList = () => {
-   const cards = useSelector(state => state.cards.cardList);
-   const cardsHistory = useSelector(state => state.cardsHistory);
+   const cards = useSelector(state => state.cards.cardsList);
+   const cardsHistory = useSelector(state => state.cardsHistory.cardsHistory);
    const { id } = useParams();
    const dispatch = useDispatch()
-
-   console.log(cards)
 
    useEffect(() => {
       dispatch(initCardsCollection());
@@ -36,6 +34,8 @@ export const CardList = () => {
 
    useEffect(() => {
       dispatch(getCardsList());
+      dispatch(getCardsHistory());
+      console.log(cards)
    }, [])
 
    const sortedCards = cards?.sort(compareDate);
@@ -48,8 +48,8 @@ export const CardList = () => {
                { cardsArray?.map((card, index) => (
                   <Card
                      key={ index }
-                     reward={ card.reward }
-                     task={ card.task }
+                     reward={ card?.reward }
+                     task={ card?.task }
                      id={ id }
                   />
                )) }

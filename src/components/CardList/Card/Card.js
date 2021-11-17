@@ -33,7 +33,7 @@ export const Card = ({ reward, task, id, date }) => {
 
    const toggleClassFunc = useCallback(() => {
       setToggleClass({ active: !toggleClass.active })
-      console.log(toggleClass.active)
+      // console.log(toggleClass.active)
    }, [toggleClass]);
 
 

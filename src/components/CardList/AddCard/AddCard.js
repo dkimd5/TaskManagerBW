@@ -27,8 +27,6 @@ const addCardMachine = createMachine({
 })
 //FSM-------------------------------------------------------------------
 
-const today = format(new Date(), "EEEE, MMMM d");
-
 export const AddCard = () => {
 
    const dispatch = useDispatch();
@@ -47,7 +45,11 @@ export const AddCard = () => {
 
    const handleAddCard = () => {
       if (text && reward) {
-         dispatch(addCard({ reward: reward, task: text, date: today }))
+         dispatch(addCard({
+            reward: +reward,
+            task: text,
+            date: format(new Date(), 'EEEE, dd MMMM')
+         }))
          setText('');
          setReward('');
       }
