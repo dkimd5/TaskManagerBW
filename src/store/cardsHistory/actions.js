@@ -43,29 +43,29 @@ export const getCardsHistorySuccess = (cardList) => ({
 
 export const initCardsHistory = () => async (dispatch) => {
    dispatch(initCardsHistoryRequest());
-
+   
    try {
       await setDoc(doc(db, "cards", "cardsHistory"), {
          [Timestamp.fromDate(new Date("November 15, 2021"))]: [
-            { reward: 125, task: "Find dad's wallet", date: TODAY },
-            { reward: 100, task: "Put away old toys to white boxes on the balkoney", date: TODAY },
-            { reward: 75, task: "Wash the dishes", date: TODAY },
+            { reward: 125, task: "Find dad's wallet", date: Timestamp.fromDate(new Date("November 15, 2021")) },
+            { reward: 100, task: "Put away old toys to white boxes on the balkoney", date: Timestamp.fromDate(new Date("November 15, 2021")) },
+            { reward: 75, task: "Wash the dishes", date: Timestamp.fromDate(new Date("November 15, 2021")) },
          ],
          [Timestamp.fromDate(new Date("November 14, 2021"))]: [
-            { reward: 75, task: "Wash the dishes", date: YESTERDAY },
-            { reward: 50, task: "Water plants on the second floor", date: YESTERDAY },
+            { reward: 75, task: "Wash the dishes", date: Timestamp.fromDate(new Date("November 14, 2021")) },
+            { reward: 50, task: "Water plants on the second floor", date: Timestamp.fromDate(new Date("November 14, 2021")) },
          ],
          [Timestamp.fromDate(new Date("November 13, 2021"))]: [
-            { reward: 100, task: "Help grandma with shopping", date: BEFORE_YESTERDAY },
-            { reward: 50, task: "Water plants", date: BEFORE_YESTERDAY },
+            { reward: 100, task: "Help grandma with shopping", date: Timestamp.fromDate(new Date("November 13, 2021")) },
+            { reward: 50, task: "Water plants", date: Timestamp.fromDate(new Date("November 13, 2021")) },
          ],
       });
 
-      console.log("initCardsHistoryRequest")
-
+      
       dispatch(initCardsHistorySuccess());
 
    } catch (e) {
+      console.log(e.message)
       dispatch(initCardsHistoryFailure());
    }
 }

@@ -18,7 +18,7 @@ function compareDate(a, b) {
    return 0;
 }
 
-//TODO: loader for cards and check initCardsHistory
+//TODO: loader for cards
 
 
 export const CardList = () => {
