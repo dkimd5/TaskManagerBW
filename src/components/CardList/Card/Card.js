@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import "./Card.scss"
+import "./styles.scss"
 import { createMachine } from 'xstate';
 import { useMachine } from '@xstate/react';
 
@@ -36,6 +36,20 @@ export const Card = ({ reward, task, id, date }) => {
       console.log(toggleClass.active)
    }, [toggleClass]);
 
+
+   //Closing state----------------------------------------
+   const [isTaskDone, setTaskDone] = useState(false);
+   const handleTaskDone = useCallback(() => {
+      (() => { send('FINISH_TASK') })();
+      setTimeout(() => {
+         setTaskDone(true);
+      }, 3000);
+   }, []);
+
+
+   //Closing state----------------------------------------
+
+
    const cardColor = () => {
       if (reward >= 10 && reward < 75) {
          return "lowest-reward";
@@ -70,7 +84,7 @@ export const Card = ({ reward, task, id, date }) => {
 
 
    return (
-      <li className={ `carditem ${cardColor()} ${toggleClass.active ? 'is-flipped' : null} ` }>
+      <li className={ `carditem ${cardColor()} ${toggleClass.active ? 'is-flipped' : null} ${isTaskDone && "cardClosed"}` }>
          {
             current.matches("frontside") &&
             <div
@@ -100,7 +114,7 @@ export const Card = ({ reward, task, id, date }) => {
                   </button>
                   <button
                      className='carditem-btn carditem-btn-done'
-                     onClick={ () => { send('FINISH_TASK') } }
+                     onClick={ handleTaskDone }
                   >
                      <svg className='carditem-btn-svg' width="36" height="27" viewBox="0 0 36 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 21.4L3.59999 13L0.799988 15.8L12 27L36 3.00001L33.2 0.200012L12 21.4Z" />
