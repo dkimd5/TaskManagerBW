@@ -8,7 +8,7 @@ const useFirestore = (collctnName) => {
   useEffect(() => {
     const collectionRef = collection(db, collctnName);
 
-    const unsub = onSnapshot(collectionRefOrdered, (snap) => {
+    const unsub = onSnapshot(collectionRef, (snap) => {
       let documents = [];
       snap.forEach((doc) => {
         documents.push({ ...doc.data(), id: doc.id });
@@ -18,8 +18,8 @@ const useFirestore = (collctnName) => {
 
     return () => unsub();
   }, [collctnName]);
-
-  return { docs };
+  console.log(docs);
+  return docs;
 };
 
 export default useFirestore;
