@@ -10,6 +10,8 @@ import {
   initCardsHistory,
   getCardsHistory,
 } from "../../store/cardsHistory/actions";
+import useFirestore from "../../hooks/useFirestore";
+// import { useFirestore } from "../../hooks/useFirestore";
 
 function compareDate(a, b) {
   if (a.date < b.date) {
@@ -24,10 +26,12 @@ function compareDate(a, b) {
 //TODO: loader for cards, вынести setDate в отедльную функцию
 
 export const CardList = () => {
-  const cards = useSelector((state) => state.cards.cardsList);
+  //   const cards = useSelector((state) => state.cards.cardsList);
   const cardsHistory = useSelector((state) => state.cardsHistory.cardsHistory);
   const { id } = useParams();
   const dispatch = useDispatch();
+
+  const cards = useFirestore("card-list");
 
   //   useEffect(() => {
   //     dispatch(initCardsCollection());
