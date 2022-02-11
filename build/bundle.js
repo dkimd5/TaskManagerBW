@@ -21895,7 +21895,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _reset_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reset.css */ "./src/components/reset.css");
-/* harmony import */ var _reset_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_reset_css__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _CardList_CardList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardList/CardList */ "./src/components/CardList/CardList.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
@@ -21906,7 +21905,7 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
     to: "/todayshousework"
-  }, "Today\u2019s housework")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+  }, "Today's housework")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
     to: "/history"
   }, "History"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
     path: "/",
@@ -21935,8 +21934,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _xstate_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @xstate/react */ "./node_modules/@xstate/react/es/useMachine.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles.scss */ "./src/components/CardList/AddCard/styles.scss");
-/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _store_cards_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../store/cards/actions */ "./src/store/cards/actions.js");
+/* harmony import */ var _store_cards_actions__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_store_cards_actions__WEBPACK_IMPORTED_MODULE_3__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -22061,10 +22060,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Card_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Card/Card */ "./src/components/CardList/Card/Card.js");
 /* harmony import */ var _AddCard_AddCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddCard/AddCard */ "./src/components/CardList/AddCard/AddCard.js");
 /* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles.scss */ "./src/components/CardList/styles.scss");
-/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _src_utils_constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../src/utils/constants */ "./src/utils/constants.js");
 /* harmony import */ var _store_cards_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../store/cards/actions */ "./src/store/cards/actions.js");
+/* harmony import */ var _store_cards_actions__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_store_cards_actions__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _store_cardsHistory_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../store/cardsHistory/actions */ "./src/store/cardsHistory/actions.js");
 
 
@@ -22086,7 +22085,7 @@ function compareDate(a, b) {
   }
 
   return 0;
-} //TODO: loader for cards, вынести setDate в отедльную функцию, проверка на существование коллекции в init
+} //TODO: loader for cards, вынести setDate в отедльную функцию
 
 
 var CardList = function CardList() {
@@ -22100,20 +22099,20 @@ var CardList = function CardList() {
   var _useParams = (0,react_router__WEBPACK_IMPORTED_MODULE_8__.useParams)(),
       id = _useParams.id;
 
-  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useDispatch)();
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    dispatch((0,_store_cards_actions__WEBPACK_IMPORTED_MODULE_6__.initCardsCollection)());
-    dispatch((0,_store_cardsHistory_actions__WEBPACK_IMPORTED_MODULE_7__.initCardsHistory)());
-  }, []);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    dispatch((0,_store_cards_actions__WEBPACK_IMPORTED_MODULE_6__.getCardsList)());
-    dispatch((0,_store_cardsHistory_actions__WEBPACK_IMPORTED_MODULE_7__.getCardsHistory)());
-    console.log(cards);
-  }, []);
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useDispatch)(); //   useEffect(() => {
+  //     dispatch(initCardsCollection());
+  //     dispatch(initCardsHistory());
+  //   }, []);
+  //   useEffect(() => {
+  //     dispatch(getCardsList());
+  //     dispatch(getCardsHistory());
+  //     console.log(cards);
+  //   }, []);
+
   var sortedCards = cards === null || cards === void 0 ? void 0 : cards.sort(compareDate);
 
   var cardsRender = function cardsRender(cardsArray) {
-    if (cardsArray == sortedCards) {
+    if (cardsArray === sortedCards) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "cardslist"
       }, cardsArray === null || cardsArray === void 0 ? void 0 : cardsArray.map(function (card, index) {
@@ -22146,7 +22145,7 @@ var CardList = function CardList() {
     }
   };
 
-  if (id === 'history') {
+  if (id === "history") {
     return cardsRender(cardsHistory);
   }
 
@@ -22168,7 +22167,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.scss */ "./src/components/CardList/Card/styles.scss");
-/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var xstate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! xstate */ "./node_modules/xstate/es/Machine.js");
 /* harmony import */ var _xstate_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @xstate/react */ "./node_modules/@xstate/react/es/useMachine.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -22699,241 +22697,9 @@ var cardsHistoryReducer = function cardsHistoryReducer() {
 /*!************************************!*\
   !*** ./src/store/cards/actions.js ***!
   \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ADD_CARD": () => (/* binding */ ADD_CARD),
-/* harmony export */   "INIT_CARDS_COLLECTION_REQUEST": () => (/* binding */ INIT_CARDS_COLLECTION_REQUEST),
-/* harmony export */   "INIT_CARDS_COLLECTION_SUCCESS": () => (/* binding */ INIT_CARDS_COLLECTION_SUCCESS),
-/* harmony export */   "INIT_CARDS_COLLECTION_FAILURE": () => (/* binding */ INIT_CARDS_COLLECTION_FAILURE),
-/* harmony export */   "GET_CARDS_LIST_REQUEST": () => (/* binding */ GET_CARDS_LIST_REQUEST),
-/* harmony export */   "GET_CARDS_LIST_SUCCESS": () => (/* binding */ GET_CARDS_LIST_SUCCESS),
-/* harmony export */   "GET_CARDS_LIST_FAILURE": () => (/* binding */ GET_CARDS_LIST_FAILURE),
-/* harmony export */   "addCardRequest": () => (/* binding */ addCardRequest),
-/* harmony export */   "initCardsCollectionRequest": () => (/* binding */ initCardsCollectionRequest),
-/* harmony export */   "initCardsCollectionFailure": () => (/* binding */ initCardsCollectionFailure),
-/* harmony export */   "initCardsCollectionSuccess": () => (/* binding */ initCardsCollectionSuccess),
-/* harmony export */   "getCardsListRequest": () => (/* binding */ getCardsListRequest),
-/* harmony export */   "getCardsListFailure": () => (/* binding */ getCardsListFailure),
-/* harmony export */   "getCardsListSuccess": () => (/* binding */ getCardsListSuccess),
-/* harmony export */   "initCardsCollection": () => (/* binding */ initCardsCollection),
-/* harmony export */   "getCardsList": () => (/* binding */ getCardsList),
-/* harmony export */   "addCard": () => (/* binding */ addCard)
-/* harmony export */ });
-/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/index.esm.js");
-/* harmony import */ var _src_firebase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../src/firebase */ "./src/firebase.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-
-var ADD_CARD = 'CARDS_LIST::ADD_CARD';
-var INIT_CARDS_COLLECTION_REQUEST = 'CARDS_LIST::INIT_CARDS_COLLECTION_REQUEST';
-var INIT_CARDS_COLLECTION_SUCCESS = 'CARDS_LIST::INIT_CARDS_COLLECTION_SUCCESS';
-var INIT_CARDS_COLLECTION_FAILURE = 'CARDS_LIST::INIT_CARDS_COLLECTION_FAILURE';
-var GET_CARDS_LIST_REQUEST = 'CARDS_LIST::GET_CARDS_LIST_REQUEST';
-var GET_CARDS_LIST_SUCCESS = 'CARDS_LIST::GET_CARDS_LIST_SUCCESS';
-var GET_CARDS_LIST_FAILURE = 'CARDS_LIST::GET_CARDS_LIST_FAILURE';
-var addCardRequest = function addCardRequest(newCard) {
-  return {
-    type: ADD_CARD,
-    payload: newCard
-  };
-};
-var initCardsCollectionRequest = function initCardsCollectionRequest() {
-  return {
-    type: INIT_CARDS_COLLECTION_REQUEST
-  };
-};
-var initCardsCollectionFailure = function initCardsCollectionFailure(error) {
-  return {
-    type: INIT_CARDS_COLLECTION_FAILURE,
-    payload: error
-  };
-};
-var initCardsCollectionSuccess = function initCardsCollectionSuccess() {
-  return {
-    type: INIT_CARDS_COLLECTION_SUCCESS
-  };
-};
-var getCardsListRequest = function getCardsListRequest() {
-  return {
-    type: GET_CARDS_LIST_REQUEST
-  };
-};
-var getCardsListFailure = function getCardsListFailure(error) {
-  return {
-    tyep: GET_CARDS_LIST_FAILURE,
-    payload: error
-  };
-};
-var getCardsListSuccess = function getCardsListSuccess(cardsList) {
-  return {
-    type: GET_CARDS_LIST_SUCCESS,
-    payload: cardsList
-  };
-};
-var initCardsCollection = function initCardsCollection() {
-  return /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch) {
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              dispatch(initCardsCollectionRequest());
-              _context.prev = 1;
-              _context.next = 4;
-              return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.setDoc)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.doc)(_src_firebase__WEBPACK_IMPORTED_MODULE_1__.default, "cards", "cardsList"), {
-                cardsList: [{
-                  reward: 125,
-                  task: "Find dad's wallet",
-                  date: firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.Timestamp.fromDate(new Date("November 15, 2021"))
-                }, {
-                  reward: 100,
-                  task: "Put away old toys to white boxes on the balkoney",
-                  date: firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.Timestamp.fromDate(new Date("November 13, 2021"))
-                }, {
-                  reward: 75,
-                  task: "Wash the dishes",
-                  date: firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.Timestamp.fromDate(new Date("November 15, 2021"))
-                }, {
-                  reward: 50,
-                  task: "Make your bed in the morning",
-                  date: firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.Timestamp.fromDate(new Date("November 14, 2021"))
-                }, {
-                  reward: 50,
-                  task: "Fix the pillowcase",
-                  date: firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.Timestamp.fromDate(new Date("November 15, 2021"))
-                }, {
-                  reward: 50,
-                  task: "Water plants",
-                  date: firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.Timestamp.fromDate(new Date("November 14, 2021"))
-                }]
-              });
-
-            case 4:
-              dispatch(initCardsCollectionSuccess());
-              _context.next = 10;
-              break;
-
-            case 7:
-              _context.prev = 7;
-              _context.t0 = _context["catch"](1);
-              dispatch(initCardsCollectionFailure(_context.t0.message));
-
-            case 10:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee, null, [[1, 7]]);
-    }));
-
-    return function (_x) {
-      return _ref.apply(this, arguments);
-    };
-  }();
-};
-var getCardsList = function getCardsList() {
-  return /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch) {
-      var docRef, docSnap, data;
-      return regeneratorRuntime.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              dispatch(getCardsListRequest());
-              _context2.prev = 1;
-              docRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.doc)(_src_firebase__WEBPACK_IMPORTED_MODULE_1__.default, "cards", "cardsList");
-              _context2.next = 5;
-              return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.getDoc)(docRef);
-
-            case 5:
-              docSnap = _context2.sent;
-              data = docSnap.data().cardsList; // console.log(data);
-
-              dispatch(getCardsListSuccess(data));
-              _context2.next = 13;
-              break;
-
-            case 10:
-              _context2.prev = 10;
-              _context2.t0 = _context2["catch"](1);
-              dispatch(getCardsListFailure(_context2.t0.message));
-
-            case 13:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2, null, [[1, 10]]);
-    }));
-
-    return function (_x2) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-};
-var addCard = function addCard(newCard) {
-  return /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(dispatch) {
-      var docRef, docSnap, data;
-      return regeneratorRuntime.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              dispatch(addCardRequest());
-              _context3.prev = 1;
-              docRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.doc)(_src_firebase__WEBPACK_IMPORTED_MODULE_1__.default, "cards", "cardsList");
-              _context3.next = 5;
-              return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.getDoc)(docRef);
-
-            case 5:
-              docSnap = _context3.sent;
-              data = docSnap.data().cardsList;
-              _context3.next = 9;
-              return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.updateDoc)(docRef, {
-                cardsList: [].concat(_toConsumableArray(data), [newCard])
-              });
-
-            case 9:
-              getCardsList();
-              _context3.next = 15;
-              break;
-
-            case 12:
-              _context3.prev = 12;
-              _context3.t0 = _context3["catch"](1);
-              console.log(_context3.t0.message);
-
-            case 15:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3, null, [[1, 12]]);
-    }));
-
-    return function (_x3) {
-      return _ref3.apply(this, arguments);
-    };
-  }();
-};
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\src\\store\\cards\\actions.js: Unexpected token (107:0)\n\n\u001b[0m \u001b[90m 105 |\u001b[39m \u001b[90m//    }\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 106 |\u001b[39m \u001b[90m// }\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 107 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n    at Object._raise (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:810:17)\n    at Object.raiseWithData (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:803:17)\n    at Object.raise (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:764:17)\n    at Object.unexpected (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:9980:16)\n    at Object.parseExprAtom (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:11382:20)\n    at Object.parseExprAtom (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:5300:20)\n    at Object.parseExprSubscripts (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:10954:23)\n    at Object.parseUpdate (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:10934:21)\n    at Object.parseMaybeUnary (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:10912:23)\n    at Object.parseExprOps (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:10769:23)\n    at Object.parseMaybeConditional (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:10743:23)\n    at Object.parseMaybeAssign (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:10706:21)\n    at Object.parseExpressionBase (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:10651:23)\n    at E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:10645:39\n    at Object.allowInAnd (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:12396:12)\n    at Object.parseExpression (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:10645:17)\n    at Object.parseStatementContent (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:12727:23)\n    at Object.parseStatement (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:12596:17)\n    at Object.parseBlockOrModuleBlockBody (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:13185:25)\n    at Object.parseBlockBody (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:13176:10)\n    at Object.parseBlock (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:13160:10)\n    at Object.parseTryStatement (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:13048:23)\n    at Object.parseStatementContent (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:12653:21)\n    at Object.parseStatement (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:12596:17)\n    at Object.parseBlockOrModuleBlockBody (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:13185:25)\n    at Object.parseBlockBody (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:13176:10)\n    at Object.parseBlock (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:13160:10)\n    at Object.parseFunctionBody (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:12069:24)\n    at Object.parseArrowExpression (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:12041:10)\n    at Object.parseAsyncArrowFromCallExpression (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\@babel\\parser\\lib\\index.js:11172:10)");
 
 /***/ }),
 
@@ -22949,6 +22715,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "cardListReducer": () => (/* binding */ cardListReducer)
 /* harmony export */ });
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions */ "./src/store/cards/actions.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_actions__WEBPACK_IMPORTED_MODULE_0__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -27462,9 +27229,12 @@ var index = react__WEBPACK_IMPORTED_MODULE_0__.createContext || createReactConte
 /*!*****************************************************!*\
   !*** ./src/components/CardList/AddCard/styles.scss ***!
   \*****************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleError: Module Error (from ./node_modules/sass-loader/dist/cjs.js):\nNode Sass does not yet support your current environment: Windows 64-bit with Unsupported runtime (93)\nFor more information on which environments are supported please see:\nhttps://github.com/sass/node-sass/releases/tag/v5.0.0\n    at Object.emitError (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\webpack\\lib\\NormalModule.js:552:6)\n    at getSassImplementation (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\sass-loader\\dist\\utils.js:59:21)\n    at Object.loader (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\sass-loader\\dist\\index.js:35:59)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -27472,9 +27242,12 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!**************************************************!*\
   !*** ./src/components/CardList/Card/styles.scss ***!
   \**************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleError: Module Error (from ./node_modules/sass-loader/dist/cjs.js):\nNode Sass does not yet support your current environment: Windows 64-bit with Unsupported runtime (93)\nFor more information on which environments are supported please see:\nhttps://github.com/sass/node-sass/releases/tag/v5.0.0\n    at Object.emitError (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\webpack\\lib\\NormalModule.js:552:6)\n    at getSassImplementation (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\sass-loader\\dist\\utils.js:59:21)\n    at Object.loader (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\sass-loader\\dist\\index.js:35:59)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -27482,9 +27255,12 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!*********************************************!*\
   !*** ./src/components/CardList/styles.scss ***!
   \*********************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleError: Module Error (from ./node_modules/sass-loader/dist/cjs.js):\nNode Sass does not yet support your current environment: Windows 64-bit with Unsupported runtime (93)\nFor more information on which environments are supported please see:\nhttps://github.com/sass/node-sass/releases/tag/v5.0.0\n    at Object.emitError (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\webpack\\lib\\NormalModule.js:552:6)\n    at getSassImplementation (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\sass-loader\\dist\\utils.js:59:21)\n    at Object.loader (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\sass-loader\\dist\\index.js:35:59)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -27492,9 +27268,12 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!**********************************!*\
   !*** ./src/components/reset.css ***!
   \**********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleError: Module Error (from ./node_modules/sass-loader/dist/cjs.js):\nNode Sass does not yet support your current environment: Windows 64-bit with Unsupported runtime (93)\nFor more information on which environments are supported please see:\nhttps://github.com/sass/node-sass/releases/tag/v5.0.0\n    at Object.emitError (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\webpack\\lib\\NormalModule.js:552:6)\n    at getSassImplementation (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\sass-loader\\dist\\utils.js:59:21)\n    at Object.loader (E:\\WebProjects\\github_dkimd5\\TaskManagerBW\\node_modules\\sass-loader\\dist\\index.js:35:59)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 

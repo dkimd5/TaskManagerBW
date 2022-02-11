@@ -82,25 +82,21 @@ export const getCardsListSuccess = (cardsList) => ({
 //    }
 // }
 
-// export const addCard = (newCard) => async (dispatch) => {
-//    dispatch(addCardRequest());
+export const addCard = (newCard) => async (dispatch) => {
+  dispatch(addCardRequest());
 
-//    try {
-//       const docRef = doc(db, "cards", "cardsList");
+  try {
+    const docRef = doc(db, "cards", "cardsList");
 
-//       const docSnap = await getDoc(docRef);
-//       const data = docSnap.data().cardsList;
+    const docSnap = await getDoc(docRef);
+    const data = docSnap.data().cardsList;
 
-//       await updateDoc(docRef, {
-//          cardsList: [
-//             ...data,
-//             newCard,
-//          ]
-//       });
+    await updateDoc(docRef, {
+      cardsList: [...data, newCard],
+    });
 
-//       getCardsList();
-
-//    } catch (err) {
-//       console.log(err.message)
-//    }
-// }
+    getCardsList();
+  } catch (err) {
+    console.log(err.message);
+  }
+};
