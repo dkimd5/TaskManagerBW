@@ -5,6 +5,8 @@ import { useMachine } from "@xstate/react";
 import { useDispatch } from "react-redux";
 import "./styles.scss";
 import { addCard } from "../../../store/cards/actions";
+import { db } from "../../../firebase";
+import { addDoc, collection } from "firebase/firestore";
 
 //FSM-------------------------------------------------------------------
 const addCardMachine = createMachine({
@@ -42,17 +44,29 @@ export const AddCard = () => {
     setReward(e.target.value);
   };
 
+  //   const handleAddCard = () => {
+  //     if (text && reward) {
+  //       dispatch(
+  //         addCard({
+  //           reward: +reward,
+  //           task: text,
+  //           date: format(new Date(), "EEEE, dd MMMM"),
+  //         })
+  //       );
+  //       setText("");
+  //       setReward("");
+  //     }
+  //   };
+
   const handleAddCard = () => {
     if (text && reward) {
-      dispatch(
-        addCard({
-          reward: +reward,
-          task: text,
-          date: format(new Date(), "EEEE, dd MMMM"),
-        })
-      );
-      setText("");
-      setReward("");
+      const collectionRef = collection(db, "card-list");
+      console.log(collectionRef);
+      addDoc(collectionRef, {
+        reward: +reward,
+        task: text,
+        date: format(new Date(), "EEEE, dd MMMM"),
+      });
     }
   };
 
