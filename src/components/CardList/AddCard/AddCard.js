@@ -87,7 +87,7 @@ export const AddCard = () => {
               ></input>
             </form>
           </div>
-          <button>Cancel</button>
+          <button onClick={() => send("CANCEL")}>Cancel</button>
           <button onClick={handleAddCard}>Create</button>
         </li>
       )}
