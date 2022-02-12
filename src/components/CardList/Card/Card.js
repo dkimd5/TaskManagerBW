@@ -4,7 +4,7 @@ import { createMachine } from "xstate";
 import { useMachine } from "@xstate/react";
 import { TODAY } from "/src/utils/constants";
 import { db } from "../../../firebase";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc, updateDoc } from "firebase/firestore";
 
 //FSM-------------------------------------------------------------------
 const cardMachine = createMachine({
@@ -41,7 +41,8 @@ export const Card = ({ reward, task, id }) => {
   const [isTaskDone, setTaskDone] = useState(false);
   const handleTaskDone = () => {
     const collectionRef = collection(db, "history");
-    addDoc(collectionRef, { [TODAY]: { reward, task } });
+    const docRef = doc(collectionRef, TODAY);
+    setDoc(docRef, { [task]: { reward, task } }, { merge: true });
     (() => {
       send("FINISH_TASK");
     })();
