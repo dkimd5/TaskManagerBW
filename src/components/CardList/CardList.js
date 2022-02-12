@@ -51,7 +51,13 @@ export const CardList = () => {
       return (
         <ul className="cardslist">
           {cardsArray?.map((card, index) => (
-            <Card key={index} reward={card?.reward} task={card?.task} id={id} />
+            <Card
+              key={index}
+              reward={card?.reward}
+              task={card?.task}
+              cardId={card.id}
+              id={id}
+            />
           ))}
           <AddCard />
         </ul>

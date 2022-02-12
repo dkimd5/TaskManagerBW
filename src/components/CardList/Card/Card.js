@@ -4,7 +4,7 @@ import { createMachine } from "xstate";
 import { useMachine } from "@xstate/react";
 import { TODAY } from "/src/utils/constants";
 import { db } from "../../../firebase";
-import { addDoc, collection, doc, setDoc, updateDoc } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc, deleteDoc } from "firebase/firestore";
 
 //FSM-------------------------------------------------------------------
 const cardMachine = createMachine({
@@ -27,8 +27,9 @@ const cardMachine = createMachine({
 });
 //FSM-------------------------------------------------------------------
 
-export const Card = ({ reward, task, id }) => {
+export const Card = ({ reward, task, cardId, id }) => {
   const [current, send] = useMachine(cardMachine);
+  console.log(cardId);
 
   const [toggleClass, setToggleClass] = useState({ active: false });
 
@@ -38,16 +39,20 @@ export const Card = ({ reward, task, id }) => {
   }, [toggleClass]);
 
   //Closing state----------------------------------------
-  const [isTaskDone, setTaskDone] = useState(false);
+  //   const [isTaskDone, setTaskDone] = useState(false);
   const handleTaskDone = () => {
+    //references
     const collectionRef = collection(db, "history");
     const docRef = doc(collectionRef, TODAY);
+    //add task to history
     setDoc(docRef, { [task]: { reward, task } }, { merge: true });
+    //close card block after 3s
     (() => {
       send("FINISH_TASK");
     })();
     setTimeout(() => {
-      setTaskDone(true);
+      // setTaskDone(true);
+      deleteDoc(doc(db, "card-list", cardId));
     }, 3000);
   };
 
@@ -87,7 +92,7 @@ export const Card = ({ reward, task, id }) => {
     <li
       className={`carditem ${cardColor()} ${
         toggleClass.active ? "is-flipped" : null
-      } ${isTaskDone && "cardClosed"}`}
+      }`}
     >
       {current.matches("frontside") && (
         <div
