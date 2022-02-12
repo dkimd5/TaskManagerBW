@@ -61,7 +61,6 @@ export const AddCard = () => {
   const handleAddCard = () => {
     if (text && reward) {
       const collectionRef = collection(db, "card-list");
-      console.log(collectionRef);
       addDoc(collectionRef, {
         reward: +reward,
         task: text,
