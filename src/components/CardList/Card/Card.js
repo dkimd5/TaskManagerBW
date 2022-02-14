@@ -35,27 +35,20 @@ export const Card = ({ reward, task, cardId, id }) => {
 
   const toggleClassFunc = useCallback(() => {
     setToggleClass({ active: !toggleClass.active });
-    // console.log(toggleClass.active)
   }, [toggleClass]);
 
   //Closing state----------------------------------------
-  //   const [isTaskDone, setTaskDone] = useState(false);
   const handleTaskDone = () => {
-    //references
     const collectionRef = collection(db, "history");
     const docRef = doc(collectionRef, TODAY);
-    //add task to history
     setDoc(docRef, { [task]: { reward, task } }, { merge: true });
-    //close card block after 3s
     (() => {
       send("FINISH_TASK");
     })();
     setTimeout(() => {
-      // setTaskDone(true);
       deleteDoc(doc(db, "card-list", cardId));
     }, 3000);
   };
-
   //----------------------------------------
 
   const cardColor = () => {
